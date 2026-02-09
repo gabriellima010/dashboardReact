@@ -1,36 +1,27 @@
 import styled from 'styled-components'
 
-const Header = styled.div`
-    height: 5vh;
-    background-color: var(--color-surface);
-`
-
 const Container = styled.div`
     width: 100vw;
+    height: 100%;
     display: flex;
 `;
 
-const Col3 = styled.div`
+const Sidebar = styled.div`
     width: 20%;
     height: 100%;
     padding: var(--space-md);
-    border: solid;
-    border-width: var( --space-xxs);
-    border-color: var( --color-border);
+    padding: 0;
 `;
 
-const Col9 = styled.div`
+const ContentBody = styled.div`
     width: 80%;
     height: 100%;
     padding: var(--space-md);
-    border: solid;
-    border-width: var( --space-xxs);
-    border-color: var( --color-border);
+    padding: 0;
 `;
 
 export{
     Container,
-    Col3,
-    Col9,
-    Header
+    Sidebar,
+    ContentBody
 }

@@ -1,19 +1,22 @@
-import { Container, Col3, Col9, Header } from './styled-component'; 
+import { Container, Sidebar, ContentBody } from './styled-component'; 
+
+import { HeaderSidebar } from '../components/headerSidebar';
+import { HeadeContent } from '../components/headerContent';
+import { ConentSidebar } from '../components/contentSidebar'
 
 export function App() {
 
   return (
-  <>
-   <Header></Header>
    <Container>
-    <Col3>
-      <h1>Teste</h1>
-    </Col3>
+    <Sidebar>
+      <HeaderSidebar/>
+      <ConentSidebar/>
+    </Sidebar>
 
-    <Col9>
-      <h1>Teste 2</h1>
-    </Col9>
+    <ContentBody>
+       <HeadeContent/>
+       
+    </ContentBody>
    </Container>  
-  </>
   )
 }

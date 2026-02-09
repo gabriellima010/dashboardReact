@@ -13,6 +13,13 @@
   --color-warning: #FACC15;
   --color-danger: #EF4444;
 
+  /* Texto */
+  --text-xs: 6px;
+  --text-sm: 8px;
+  --text-md: 16px;
+  --text-lg: 24px;
+  --text-xl: 32px;
+
   /* Radius */
   --radius-sm: 6px;
   --radius-md: 8px;
