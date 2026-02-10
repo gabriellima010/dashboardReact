@@ -8,6 +8,7 @@
 
   --color-text-primary: #E5E7EB;
   --color-text-secondary: #9CA3AF;
+  --color-text-hover: #7C5CFC;
 
   --color-success: #22C55E;
   --color-warning: #FACC15;
@@ -19,6 +20,11 @@
   --text-md: 16px;
   --text-lg: 24px;
   --text-xl: 32px;
+
+  --text-w-light: 300;
+  --text-w-regular: 400;
+  --text-w-medium: 500;
+  --text-w-bold: 600;
 
   /* Radius */
   --radius-sm: 6px;
