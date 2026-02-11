@@ -1,10 +1,16 @@
-import { Header, Title } from './styled-components'
+import { Header, Wrapper, IconUser, IconArrow } from './styled-components'
+
+import { SearchInput } from '../serachInput'
 
 export function HeadeContent() {
 
   return (
   <Header>
-    <Title> Pesquisa</Title>
+    <SearchInput/>
+    <Wrapper>
+      <IconUser/>
+      <IconArrow/>
+    </Wrapper>
   </Header>
   )
 }

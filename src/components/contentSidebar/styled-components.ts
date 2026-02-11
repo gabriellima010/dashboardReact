@@ -24,18 +24,18 @@ const ListItem = styled.li`
     list-style-type: none;
     color: var(--color-text-secondary);
     font-size: var(--text-lg);
-    font-weight: var(--text-w-medium);
+    font-weight: var(--text-w-bold);
     height: 60px;
     padding-left: var(--space-md);
 
     &:hover{
-        background-color: var(--color-border);
+        background-color: var(--color-bg-light);
         border-radius: var(--radius-md);
         color: var( --color-text-hover);
     }
 
     &:active{
-        background-color: var(--color-border);
+        background-color: var(--color-bg-light);
         border-radius: var(--radius-md);
         color: var( --color-text-hover);
     }
