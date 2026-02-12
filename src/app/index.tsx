@@ -1,8 +1,11 @@
 import { Container, Sidebar, ContentBody } from './styled-component'; 
 
+import AppRoutes from '../routes';
+
 import { HeaderSidebar } from '../components/headerSidebar';
 import { HeadeContent } from '../components/headerContent';
 import { ConentSidebar } from '../components/contentSidebar'
+
 
 export function App() {
 
@@ -15,7 +18,7 @@ export function App() {
 
     <ContentBody>
        <HeadeContent/>
-       
+       <AppRoutes/>
     </ContentBody>
    </Container>  
   )

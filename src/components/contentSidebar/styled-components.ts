@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { NavLink } from 'react-router-dom';
 
 const Content = styled.div`
     display: flex;
@@ -19,37 +20,48 @@ const ListContent = styled.ul`
 `
 
 const ListItem = styled.li`
+    list-style: none;
+    margin-bottom: var(--space-sm); 
+
+`
+
+const StyledLink = styled(NavLink)`
     display: flex;
     align-items: center;
-    list-style-type: none;
+    height: 60px;
+    padding-left: var(--space-md);
     color: var(--color-text-secondary);
     font-size: var(--text-lg);
     font-weight: var(--text-w-bold);
-    height: 60px;
-    padding-left: var(--space-md);
+    text-decoration: none;
 
-    &:hover{
+     &:hover{
         background-color: var(--color-bg-light);
         border-radius: var(--radius-md);
         color: var( --color-text-hover);
     }
 
-    &:active{
+    &.active{
         background-color: var(--color-bg-light);
         border-radius: var(--radius-md);
         color: var( --color-text-hover);
     }
 `
-
 const IconList = styled.span`
     display: flex;
     margin-right: var(--space-md);
     font-size: 20px;
+
+     &:hover{
+        color: var( --color-text-hover);
+    }
 `
+
 
 export{
     Content,
     ListContent,
     ListItem,
-    IconList
+    IconList,
+    StyledLink
 }

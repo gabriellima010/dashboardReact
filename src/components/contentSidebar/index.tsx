@@ -1,12 +1,11 @@
 import { FiHome, FiShoppingBag  , FiSettings } from 'react-icons/fi';
-
-import { Content, ListContent, ListItem, IconList } from './styled-components'
+import { Content, ListContent, ListItem, IconList, StyledLink } from './styled-components'
 
 export function ConentSidebar() {
   const list = [ 
-    {label: 'Dashboard', icon: <FiHome/>},
-    {label: 'Products', icon: <FiShoppingBag  />},
-    {label: 'Settings', icon: <FiSettings/>},
+    {label: 'Dashboard', path: '/', icon: <FiHome/>},
+    {label: 'Products', path: '/products', icon: <FiShoppingBag  />},
+    {label: 'Settings', path: '/settings', icon: <FiSettings/>},
   ]
 
   return (
@@ -14,10 +13,12 @@ export function ConentSidebar() {
        <ListContent>
         {list.map((item, index) => (
           <ListItem key={index}>
-            <IconList>
-              {item.icon}
-            </IconList>
-            {item.label}
+            <StyledLink to={item.path}>
+              <IconList>
+                {item.icon}
+              </IconList>
+              {item.label}
+            </StyledLink>
           </ListItem>
         ))}
        </ListContent>
