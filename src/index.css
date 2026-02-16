@@ -1,6 +1,7 @@
 :root {
   /* Colors */
-  --color-primary: #7C5CFC;
+  --color-primary: #5d44bd;
+  --color-primary-hover: #513da1;
   --color-bg: #0F1117;
   --color-bg-light: #2A2F42;
   --color-surface: #161A23;
@@ -40,6 +41,8 @@
   --space-sm: 8px;
   --space-md: 16px;
   --space-lg: 24px;
+  --space-xl: 32px;
+  --space-xxl: 48px;
 }
 
 body {
