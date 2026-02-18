@@ -1,4 +1,5 @@
 import * as S from './styled-components'
+import { Table } from '../../components/tableProducts'
 
 const optionsFilter = [
     { value: 'categoria1', label: 'Categoria 1' },
@@ -8,26 +9,32 @@ const optionsFilter = [
 
 export default function Products() {
     return(
-        <S.ContentInfo>
-            <S.Title>Product Page</S.Title>
-            <S.Text>Manage your products in the system.</S.Text>
+        <>
+            <S.ContentInfo>
+                <S.Title>Product Page</S.Title>
+                <S.Text>Manage your products in the system.</S.Text>
 
-            <S.ContentHandler>
-                <S.AddProductBtn>
-                    <S.IconAddBtn/>
-                    Add Product
-                </S.AddProductBtn>
-                <S.FilterSelect name='filter' value=''>
-                    <S.FilterOption className='optionStyle' value='' disabled>
-                        Filter
-                    </S.FilterOption>
-                    {optionsFilter.map((item) => (
-                        <S.FilterOption key={item.value} value={item.value}>
-                            {item.label}
+                <S.ContentHandler>
+                    <S.AddProductBtn>
+                        <S.IconAddBtn/>
+                        Add Product
+                    </S.AddProductBtn>
+                    <S.FilterSelect name='filter' value=''>
+                        <S.FilterOption className='optionStyle' value='' disabled>
+                            Filter
                         </S.FilterOption>
-                    ))}
-                </S.FilterSelect>
-            </S.ContentHandler>
-        </S.ContentInfo>
+                        {optionsFilter.map((item) => (
+                            <S.FilterOption key={item.value} value={item.value}>
+                                {item.label}
+                            </S.FilterOption>
+                        ))}
+                    </S.FilterSelect>
+                </S.ContentHandler>
+            </S.ContentInfo>
+            
+            <S.ContentBody>
+                <Table/>
+            </S.ContentBody>
+        </>
     )
 }

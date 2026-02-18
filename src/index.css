@@ -16,6 +16,7 @@
   --color-success: #22C55E;
   --color-warning: #FACC15;
   --color-danger: #EF4444;
+  --color-danger-hover: #a73232;
 
   /* Texto */
   --text-xs: 6px;
@@ -52,4 +53,5 @@ body {
   font-family: 'Poppins', sans-serif;
   background: var(--color-bg);
   color: var(--color-text-primary);
+  
 }

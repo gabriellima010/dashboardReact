@@ -33,6 +33,13 @@ const ContentHandler = styled.div`
     padding: var(--space-md);
 `
 
+const ContentBody = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-xxl);
+`
+
 const AddProductBtn = styled.button`
     width: 165px;
     height: 45px;
@@ -96,6 +103,7 @@ export{
     Text,
     ContentInfo,
     ContentHandler,
+    ContentBody,
     AddProductBtn,
     IconAddBtn,
     FilterSelect,
