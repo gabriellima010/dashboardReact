@@ -1,15 +1,12 @@
 import { useReactTable, getCoreRowModel, flexRender } from "@tanstack/react-table"
 import * as S from './styled-components'
+import { useProducts } from '../../hook/useQuery'
+import type { ColumnDef } from "@tanstack/react-table";
+import type { Products } from '../../hook/useQuery';
 
-const data = [
-    {id: 1, name: "Product 1", category: "Categoria 1", stock: 45},
-    {id: 2, name: "Product 2", category: "Categoria 2", stock: 50},
-    {id: 3, name: "Product 3", category: "Categoria 3", stock: 70}
-]
-
-const columns = [
+const columns: ColumnDef<Products>[] = [
     {header: "Id", accessorKey: "id"},
-    {header: "Name", accessorKey: "name"},
+    {header: "Name", accessorKey: "title"},
     {header: "Category",accessorKey: "category"},
     {header: "Stock",accessorKey: "stock"},
     {header: "Actions",
@@ -30,9 +27,14 @@ const columns = [
 ]
 
 export function Table(){
+    const {data: products = [], isLoading, isError } = useProducts();
+
     const table = useReactTable({
-        data, columns, getCoreRowModel: getCoreRowModel(),
+        data: products, columns, getCoreRowModel: getCoreRowModel(),
     })
+
+    if (isLoading) return <p>Loading...</p>;
+    if (isError) return <p>Not found products...</p>;
 
    return(
     <S.StyledTable>
