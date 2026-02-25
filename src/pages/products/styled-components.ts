@@ -36,8 +36,10 @@ const ContentHandler = styled.div`
 const ContentBody = styled.div`
     display: flex;
     align-items: center;
-    justify-content: center;
-    padding: var(--space-xxl);
+    justify-content: center;;
+    flex-direction: column;
+    padding: 0 var(--space-xxl) var(--space-xxl) var(--space-xxl);
+    gap: 16px;
 `
 
 const AddProductBtn = styled.button`

@@ -69,6 +69,46 @@ const BtnDelete = styled.button`
     }
 `
 
+const ContentPagination = styled.div`
+    display: flex;
+    gap: 5px;
+`
+
+const ButtonPagination = styled.button`
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var( --color-primary);
+    color: var( --color-text-primary);
+    border-radius: var(--radius-md);
+
+    &:hover{
+        background-color: var( --color-primary-hover);
+        color: var( --color-text-primary);
+    }
+`
+
+const QntProductSelect = styled.select`
+    width: 55px;
+    height: 45px;
+    border-radius: var(--radius-md);
+    font-size: var(--text-md);
+    font-weight: var(--text-w-bold);
+    color: var(--color-text-secondary);
+    background-color: var( --color-card);
+    border: 1px solid var(--color-border);
+    padding-left: var(--space-sm);
+
+    cursor: pointer;
+
+    &:focus {
+        outline: none;
+        border-color: var(--color-primary);
+    }
+`
+
 const IconEdit = styled(FaPen)`
     color: var( --color-text-primary);
     font-size: 18px;
@@ -89,5 +129,8 @@ export{
     BtnEdit,
     BtnDelete,
     IconEdit,
-    IconDelete
+    IconDelete,
+    ContentPagination,
+    ButtonPagination,
+    QntProductSelect,
 }
