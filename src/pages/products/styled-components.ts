@@ -54,6 +54,7 @@ const AddProductBtn = styled.button`
     font-size: var(--text-md);
     font-weight: var(--text-w-bold);
     border-radius: var(--radius-md);
+    cursor: pointer;
 
     &:hover{
         background-color: var( --color-primary-hover);
@@ -76,9 +77,7 @@ const FilterSelect = styled.select`
     color: var(--color-text-secondary);
     background-color: var( --color-card);
     border: 1px solid var(--color-border);
-
     padding: 0 var(--space-md);
-
     cursor: pointer;
 
     &:focus {
@@ -96,9 +95,6 @@ const FilterOption = styled.option`
         color: var( --color-text-hover);
     }
 `
-
-
-
 
 export{
     Title,

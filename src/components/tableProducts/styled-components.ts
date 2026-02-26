@@ -46,6 +46,7 @@ const BtnEdit = styled.button`
     background-color: var( --color-primary);
     color: var( --color-text-primary);
     border-radius: var(--radius-md);
+    cursor: pointer;
 
     &:hover{
         background-color: var( --color-primary-hover);
@@ -62,6 +63,7 @@ const BtnDelete = styled.button`
     background-color: var( --color-danger);
     color: var( --color-text-primary);
     border-radius: var(--radius-md);
+    cursor: pointer;
 
     &:hover{
         background-color: var( --color-danger-hover);
@@ -83,6 +85,7 @@ const ButtonPagination = styled.button`
     background-color: var( --color-primary);
     color: var( --color-text-primary);
     border-radius: var(--radius-md);
+    cursor: pointer;
 
     &:hover{
         background-color: var( --color-primary-hover);

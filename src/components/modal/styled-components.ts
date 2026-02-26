@@ -35,6 +35,7 @@ export const IconCloseBtn = styled(FaXmark)`
     color: var( --color-text-secondary);
     font-size: 26px;
     font-weight: var(--text-w-bold);
+    cursor: pointer;
 `
 
 export const BodyModal = styled.div`
