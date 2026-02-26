@@ -13,7 +13,7 @@ export const Overlay = styled.div`
 
 export const StyledModal = styled.div`
     width: 700px;
-    height: 940px;
+    height: 480px;
     background-color: var(--color-bg);
     z-index: 1000;
 `

@@ -1,7 +1,9 @@
 import * as S from './styled-components'
 import { Table } from '../../components/tableProducts'
 import { Modal } from '../../components/modal'
+import { FormProduct } from '../../components/formProduct'
 import { useState } from 'react';
+import { ContextCloseModal } from '../../hook/contextCloseModal'
 
 
 const optionsFilter = [
@@ -13,14 +15,16 @@ const optionsFilter = [
 export default function Products() {
     const [isOpen, setIsOpen] = useState(false);
 
-    return(
-        <>  
+    return (
+        <>
             <Modal
                 isOpen={isOpen}
                 onClose={() => setIsOpen(false)}
                 title="Add new Product">
-                    <h2>teste 2</h2>
-                </Modal>
+                <ContextCloseModal.Provider value={{setIsOpen}}>
+                    <FormProduct/>
+                </ContextCloseModal.Provider>
+            </Modal>
 
             <S.ContentInfo>
                 <S.Title>Product Page</S.Title>
@@ -28,7 +32,7 @@ export default function Products() {
 
                 <S.ContentHandler>
                     <S.AddProductBtn onClick={() => setIsOpen(true)}>
-                        <S.IconAddBtn/>
+                        <S.IconAddBtn />
                         Add Product
                     </S.AddProductBtn>
                     <S.FilterSelect name='filter' value=''>
@@ -43,9 +47,9 @@ export default function Products() {
                     </S.FilterSelect>
                 </S.ContentHandler>
             </S.ContentInfo>
-            
+
             <S.ContentBody>
-                <Table/>
+                <Table />
             </S.ContentBody>
         </>
     )
