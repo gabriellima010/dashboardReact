@@ -1,57 +1,40 @@
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import { ContextCloseModal } from '../../hook/contextCloseModal'
-import { addProduct } from '../../services/addProduct'
 import * as S from './styled-components'
 
-export function FormProduct() {
+interface FormnProps{ 
+    onSubmit: React.FormEventHandler<HTMLFormElement>
+    onChangeTitle: (e: React.ChangeEvent<HTMLInputElement>) => void
+    onChangeCateg: (e: React.ChangeEvent<HTMLInputElement>) => void
+    onChangePrice: (e: React.ChangeEvent<HTMLInputElement>) => void
+    onChangeStock: (e: React.ChangeEvent<HTMLInputElement>) => void
+}
+
+export function FormProduct({onSubmit, onChangeTitle, onChangeCateg, onChangePrice, onChangeStock} : FormnProps) {
     const {setIsOpen} = useContext(ContextCloseModal)!
-
-    const [nameProd, setNameProd] = useState('');
-    const [categProd, setCategoProd] = useState('');
-    const [priceProd, setPriceProd] = useState('');
-    const [stockProd, setStockProd] = useState('');
-
-    async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-        e.preventDefault()
-
-        try {
-        await addProduct({
-            title: nameProd,
-            category: categProd,
-            price: Number(priceProd),
-            stock: Number(stockProd),
-        })
-
-        console.log('Produto cadastrado com sucesso')
-        setIsOpen(false)
-
-        } catch (error) {
-        console.error('Erro ao cadastrar produto', error)
-        }
-    }
 
     return (
 
-        <S.FormProducts onSubmit={handleSubmit}>
+        <S.FormProducts onSubmit={onSubmit}>
             <S.LabelProduct>
                 Product Name:
-                <S.InputProduct type='text' $height={40} name='name' onChange={(e) => setNameProd(e.target.value)} />
+                <S.InputProduct type='text' $height={40} name='name' onChange={onChangeTitle} />
             </S.LabelProduct>
 
             <S.LabelProduct>
                 Category:
-                <S.InputProduct type='text' $height={40} name='category' onChange={(e) => setCategoProd(e.target.value)} />
+                <S.InputProduct type='text' $height={40} name='category' onChange={onChangeCateg} />
             </S.LabelProduct>
 
             <S.ContentInfoForm>
                 <S.LabelProduct>
                     Price:
-                    <S.InputProduct type='number' $width={290} $height={40} name='price' onChange={(e) => setPriceProd(e.target.value)} />
+                    <S.InputProduct type='number' $width={290} $height={40} name='price' onChange={onChangePrice} />
                 </S.LabelProduct>
 
                 <S.LabelProduct>
                     Stock:
-                    <S.InputProduct type='number' $width={290} $height={40} name='stock' onChange={(e) => setStockProd(e.target.value)} />
+                    <S.InputProduct type='number' $width={290} $height={40} name='stock' onChange={onChangeStock} />
                 </S.LabelProduct>
             </S.ContentInfoForm>
 
