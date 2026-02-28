@@ -15,29 +15,29 @@ const optionsFilter = [
 export default function Products() {
     const [isOpen, setIsOpen] = useState(false);
 
-      const [nameProd, setNameProd] = useState('');
-        const [categProd, setCategoProd] = useState('');
-        const [priceProd, setPriceProd] = useState('');
-        const [stockProd, setStockProd] = useState('');
-    
-        async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-            e.preventDefault()
-    
-            try {
-            await addProduct({
-                title: nameProd,
-                category: categProd,
-                price: Number(priceProd),
-                stock: Number(stockProd),
-            })
-    
-            console.log('Produto cadastrado com sucesso')
-            setIsOpen(false)
-    
-            } catch (error) {
-            console.error('Erro ao cadastrar produto', error)
-            }
+    const [nameProd, setNameProd] = useState('');
+    const [categProd, setCategoProd] = useState('');
+    const [priceProd, setPriceProd] = useState('');
+    const [stockProd, setStockProd] = useState('');
+
+    async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+        e.preventDefault()
+
+        try {
+        await addProduct({
+            title: nameProd,
+            category: categProd,
+            price: Number(priceProd),
+            stock: Number(stockProd),
+        })
+
+        console.log('Produto cadastrado com sucesso')
+        setIsOpen(false)
+
+        } catch (error) {
+        console.error('Erro ao cadastrar produto', error)
         }
+    }
 
     return (
         <>
@@ -52,6 +52,7 @@ export default function Products() {
                         onChangeCateg = {(e) => setCategoProd(e.target.value)}
                         onChangePrice = {(e) => setPriceProd(e.target.value)}
                         onChangeStock = {(e) => setStockProd(e.target.value)}
+                        textBtn = 'Save'
                     />
                 </ContextCloseModal.Provider>
             </Modal>

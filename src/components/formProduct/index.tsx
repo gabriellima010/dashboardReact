@@ -8,9 +8,10 @@ interface FormnProps{
     onChangeCateg: (e: React.ChangeEvent<HTMLInputElement>) => void
     onChangePrice: (e: React.ChangeEvent<HTMLInputElement>) => void
     onChangeStock: (e: React.ChangeEvent<HTMLInputElement>) => void
+    textBtn: string
 }
 
-export function FormProduct({onSubmit, onChangeTitle, onChangeCateg, onChangePrice, onChangeStock} : FormnProps) {
+export function FormProduct({onSubmit, onChangeTitle, onChangeCateg, onChangePrice, onChangeStock, textBtn} : FormnProps) {
     const {setIsOpen} = useContext(ContextCloseModal)!
 
     return (
@@ -39,7 +40,7 @@ export function FormProduct({onSubmit, onChangeTitle, onChangeCateg, onChangePri
             </S.ContentInfoForm>
 
             <S.ContentBtnForm>
-                <S.BtnForm type='submit' $primary> Save </S.BtnForm>
+                <S.BtnForm type='submit' $primary> {textBtn} </S.BtnForm>
                 <S.BtnForm type='button' onClick={()=> setIsOpen(false)}> Cancel </S.BtnForm>
             </S.ContentBtnForm>
         </S.FormProducts>
