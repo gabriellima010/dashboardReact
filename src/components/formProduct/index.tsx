@@ -1,8 +1,9 @@
-import { useContext } from 'react';
-import { ContextCloseModal } from '../../hook/contextCloseModal'
 import * as S from './styled-components'
+import type { Products } from '../../hook/useProducts'
 
-interface FormnProps{ 
+interface FormnProps {
+    product: Products | null
+    onClose: () => void
     onSubmit: React.FormEventHandler<HTMLFormElement>
     onChangeTitle: (e: React.ChangeEvent<HTMLInputElement>) => void
     onChangeCateg: (e: React.ChangeEvent<HTMLInputElement>) => void
@@ -11,37 +12,68 @@ interface FormnProps{
     textBtn: string
 }
 
-export function FormProduct({onSubmit, onChangeTitle, onChangeCateg, onChangePrice, onChangeStock, textBtn} : FormnProps) {
-    const {setIsOpen} = useContext(ContextCloseModal)!
-
+export function FormProduct({ onSubmit,
+    onChangeTitle,
+    onChangeCateg,
+    onChangePrice,
+    onChangeStock,
+    textBtn,
+    product,
+    onClose }: FormnProps) {
     return (
 
         <S.FormProducts onSubmit={onSubmit}>
             <S.LabelProduct>
                 Product Name:
-                <S.InputProduct type='text' $height={40} name='name' onChange={onChangeTitle} />
+                <S.InputProduct
+                    type='text'
+                    $height={40}
+                    name='name'
+                    onChange={onChangeTitle}
+                    defaultValue={product?.title}
+                />
             </S.LabelProduct>
 
             <S.LabelProduct>
                 Category:
-                <S.InputProduct type='text' $height={40} name='category' onChange={onChangeCateg} />
+                <S.InputProduct
+                    type='text'
+                    $height={40}
+                    name='category'
+                    onChange={onChangeCateg}
+                    defaultValue={product?.category}
+                />
             </S.LabelProduct>
 
             <S.ContentInfoForm>
                 <S.LabelProduct>
                     Price:
-                    <S.InputProduct type='number' $width={290} $height={40} name='price' onChange={onChangePrice} />
+                    <S.InputProduct
+                        type='number'
+                        $width={290}
+                        $height={40}
+                        name='price'
+                        onChange={onChangePrice}
+                        defaultValue={product?.price}
+                    />
                 </S.LabelProduct>
 
                 <S.LabelProduct>
                     Stock:
-                    <S.InputProduct type='number' $width={290} $height={40} name='stock' onChange={onChangeStock} />
+                    <S.InputProduct
+                        type='number'
+                        $width={290}
+                        $height={40}
+                        name='stock'
+                        onChange={onChangeStock}
+                        defaultValue={product?.stock}
+                    />
                 </S.LabelProduct>
             </S.ContentInfoForm>
 
             <S.ContentBtnForm>
                 <S.BtnForm type='submit' $primary> {textBtn} </S.BtnForm>
-                <S.BtnForm type='button' onClick={()=> setIsOpen(false)}> Cancel </S.BtnForm>
+                <S.BtnForm type='button' onClick={onClose}> Cancel </S.BtnForm>
             </S.ContentBtnForm>
         </S.FormProducts>
 

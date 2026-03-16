@@ -3,33 +3,41 @@ import * as S from './styled-components'
 import { useProducts } from '../../hook/useProducts'
 import type { ColumnDef } from "@tanstack/react-table";
 import type { Products } from '../../hook/useProducts';
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { FaAngleRight, FaAngleLeft, FaAngleDoubleRight, FaAngleDoubleLeft} from "react-icons/fa";
 
-const columns: ColumnDef<Products>[] = [
-    { header: "Id", accessorKey: "id" },
-    { header: "Name", accessorKey: "title" },
-    { header: "Category", accessorKey: "category" },
-    { header: "Stock", accessorKey: "stock" },
-    {
-        header: "Actions",
-        cell: () => {
-            return (
-                <S.BtnContent>
-                    <S.BtnEdit>
-                        <S.IconEdit />
-                    </S.BtnEdit>
+interface TableProps {
+  onEditProduct: (product: Products) => void
+  onDeleteProduct: (product: Products) => void
+}
 
-                    <S.BtnDelete>
-                        <S.IconDelete />
-                    </S.BtnDelete>
-                </S.BtnContent>
-            );
+export function Table({ onEditProduct, onDeleteProduct }: TableProps) {
+
+    const columns = useMemo<ColumnDef<Products>[]>(() => [
+        { header: "Id", accessorKey: "id" },
+        { header: "Name", accessorKey: "title" },
+        { header: "Category", accessorKey: "category" },
+        { header: "Stock", accessorKey: "stock" },
+        {
+            header: "Actions",
+            cell: ({ row }) => {
+                const product = row.original
+
+                return (
+                    <S.BtnContent>
+                        <S.BtnEdit onClick={() => onEditProduct(product)}>
+                            <S.IconEdit />
+                        </S.BtnEdit>
+
+                        <S.BtnDelete onClick={() => onDeleteProduct(product)}>
+                            <S.IconDelete />
+                        </S.BtnDelete>
+                    </S.BtnContent>
+                )
+            },
         },
-    },
-]
-
-export function Table() {
+    ], [onEditProduct])
+    
     const [pagination, setPagination] = useState({
         pageIndex: 0,
         pageSize: 10,
